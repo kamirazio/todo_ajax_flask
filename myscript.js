@@ -52,3 +52,14 @@ function addCloseBtn(elm){
 addAllFunction();
 
 // ひとまず、全部のタスクをJSONから生成してみる
+
+function showAllTask(){
+
+  // このinputValueをJsonデータに置き換える
+  var str = document.createTextNode(inputValue);
+  li.appendChild(str);
+  document.getElementById("task_list").appendChild(li);
+  addCloseBtn(li);
+  addCheckFunc(li);
+
+}

@@ -51,7 +51,6 @@ function addCloseBtn(elm){
 }
 
 addAllFunction();
-
 // ひとまず、全部のタスクをJSONから生成してみる
 // TinyDBで生成された、DBの内容を、テスト用に準備
 var dummy_tasks = {
@@ -64,18 +63,16 @@ var dummy_tasks = {
   }
 }
 
-// console.log(dummy_tasks);
-console.log(dummy_tasks._default);
-console.log(Object.keys(dummy_tasks._default));
 
 // JSON を 連携
 function showAllTasks(){
+
     // このinputValueをJsonデータに置き換える
     for(var i = 1; i <= Object.keys(dummy_tasks._default).length ; i++){
 
       var li = document.createElement("li");
       var myTasklist = document.getElementsByTagName("li");
-      
+
       //タスクを一個ずつ書き出してみる
       var str = document.createTextNode(dummy_tasks._default[i].task);
       li.appendChild(str);

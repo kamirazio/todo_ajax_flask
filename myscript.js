@@ -70,6 +70,8 @@ console.log(Object.keys(dummy_tasks._default));
 for(var i = 0; i < Object.keys(dummy_tasks._default).length ; i++){
   // forのチェック
   console.log(i);
+  //タスクを一個ずつ書き出してみる1
+  console.log(dummy_tasks._default[i]);
 }
 
 function showAllTasks(){

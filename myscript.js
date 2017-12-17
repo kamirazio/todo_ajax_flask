@@ -53,7 +53,11 @@ addAllFunction();
 
 // ひとまず、全部のタスクをJSONから生成してみる
 
-function showAllTask(){
+var dummy_tasks = {
+
+}
+
+function showAllTasks(){
 
   // このinputValueをJsonデータに置き換える
   var str = document.createTextNode(inputValue);

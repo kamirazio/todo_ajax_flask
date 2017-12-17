@@ -63,16 +63,20 @@ var dummy_tasks = {
   }
 }
 
-console.log(dummy_tasks);
+// console.log(dummy_tasks);
 console.log(dummy_tasks._default);
+console.log(Object.keys(dummy_tasks._default));
+
+for(var i = 0; i < Object.keys(dummy_tasks._default).length ; i++){
+  // forのチェック
+  console.log(i);
+}
 
 function showAllTasks(){
-
-  // このinputValueをJsonデータに置き換える
-  var str = document.createTextNode(inputValue);
-  li.appendChild(str);
-  document.getElementById("task_list").appendChild(li);
-  addCloseBtn(li);
-  addCheckFunc(li);
-
+    // このinputValueをJsonデータに置き換える
+    var str = document.createTextNode(inputValue);
+    li.appendChild(str);
+    document.getElementById("task_list").appendChild(li);
+    addCloseBtn(li);
+    addCheckFunc(li);
 }

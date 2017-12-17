@@ -67,11 +67,11 @@ var dummy_tasks = {
 console.log(dummy_tasks._default);
 console.log(Object.keys(dummy_tasks._default));
 
-for(var i = 0; i < Object.keys(dummy_tasks._default).length ; i++){
+for(var i = 1; i <= Object.keys(dummy_tasks._default).length ; i++){
   // forのチェック
   console.log(i);
   //タスクを一個ずつ書き出してみる1
-  console.log(dummy_tasks._default[i]);
+  console.log(dummy_tasks._default[i].task);
 }
 
 function showAllTasks(){

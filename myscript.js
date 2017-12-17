@@ -1,6 +1,7 @@
 
 // Create a new list item when clicking on the "Add" button
 function newTask() {
+
   var li = document.createElement("li");
   var inputValue = document.getElementById("task_input").value;
   console.log(inputValue);
@@ -67,18 +68,21 @@ var dummy_tasks = {
 console.log(dummy_tasks._default);
 console.log(Object.keys(dummy_tasks._default));
 
-for(var i = 1; i <= Object.keys(dummy_tasks._default).length ; i++){
-  // forのチェック
-  console.log(i);
-  //タスクを一個ずつ書き出してみる1
-  console.log(dummy_tasks._default[i].task);
-}
-
+// JSON を 連携
 function showAllTasks(){
     // このinputValueをJsonデータに置き換える
-    var str = document.createTextNode(inputValue);
-    li.appendChild(str);
-    document.getElementById("task_list").appendChild(li);
-    addCloseBtn(li);
-    addCheckFunc(li);
+    for(var i = 1; i <= Object.keys(dummy_tasks._default).length ; i++){
+      // forのチェック
+      console.log(i);
+      //タスクを一個ずつ書き出してみる
+      var str = document.createTextNode(dummy_tasks._default[i].task);
+      var myTasklist = document.getElementsByTagName("li");
+      li.appendChild(str);
+      document.getElementById("task_list").appendChild(li);
+      addCloseBtn(li);
+      addCheckFunc(li);
+    }
+
 }
+
+showAllTasks();

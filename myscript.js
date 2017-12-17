@@ -5,12 +5,16 @@ function newTask() {
   var inputValue = document.getElementById("task_input").value;
   console.log(inputValue);
 
+
+  //ここで新しいタスクを作っている
   var str = document.createTextNode(inputValue);
   li.appendChild(str);
 
   if (inputValue == '') {
     alert("You must write something!");
   } else {
+
+    //ここで新しいタスクを作っている
     document.getElementById("task_list").appendChild(li);
     addCloseBtn(li);
     addCheckFunc(li);
@@ -35,7 +39,7 @@ function addCheckFunc(elm){
 
 function addCloseBtn(elm){
   var closeSign = document.createElement("span");
-  var txt = document.createTextNode("\u00D7");
+  var txt = document.createTextNode("x");
   closeSign.className = "close";
   closeSign.appendChild(txt);
   elm.appendChild(closeSign);
@@ -46,3 +50,5 @@ function addCloseBtn(elm){
 }
 
 addAllFunction();
+
+// ひとまず、全部のタスクをJSONから生成してみる

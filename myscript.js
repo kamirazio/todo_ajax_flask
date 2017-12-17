@@ -52,9 +52,9 @@ var dummy_tasks = {
   }
 }
 
-
 // JSON を 連携
 function showAllTasks(){
+    // JSONを通信で受け取る -> Flask側でTaskのリストをJSONを書き出す
 
     // このinputValueをJsonデータに置き換える
     for(var i = 1; i <= Object.keys(dummy_tasks._default).length ; i++){

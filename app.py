@@ -1,14 +1,19 @@
 # Flaskモジュールのインポート
-from flask import Flask, render_template, request
+# jsonify -> JSON形式で書き出す
+from flask import Flask, render_template, request, jsonify
 # データベースモジュールのインポート
 from tinydb import TinyDB, Query
 
 app = Flask(__name__)
+# データベースの作成
+db = TinyDB('task_db.json')
 
 @app.route("/")
 def index():
     # データベースに保存された全タスクをJSONに書き出す
-    return "データJSON"
+    print(db.all())
+    # JsonfyでJSONを書き出す -> これをJSがAjaxで受け取る
+    return jsonify(db.all())
 
 @app.route("/add")
 def add():
@@ -20,8 +25,7 @@ def add():
 def reset():
     # ここにアクセスすると、最初のダミーデータが生成される
 
-    # データベースの作成
-    db = TinyDB('task_db.json')
+
     if db is not None:
         db.purge()
 

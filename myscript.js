@@ -1,4 +1,5 @@
 
+
 // Create a new list item when clicking on the "Add" button
 function newTask() {
 
@@ -55,7 +56,19 @@ var dummy_tasks = {
 // JSON を 連携
 function showAllTasks(){
     // JSONを通信で受け取る -> Flask側でTaskのリストをJSONを書き出す
-
+    $.ajax({
+      url: 'http://0.0.0.0:5000/',
+      type: 'GET',
+      dataType: 'json',
+      success: function(data){
+      // 通信成功時の処理を記述
+      console.log(data);
+      },
+      error: function(){
+      // 通信失敗時の処理を記述
+      console.log('失敗');
+      }
+    })
     // このinputValueをJsonデータに置き換える
     for(var i = 1; i <= Object.keys(dummy_tasks._default).length ; i++){
 

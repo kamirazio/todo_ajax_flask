@@ -72,11 +72,12 @@ console.log(Object.keys(dummy_tasks._default));
 function showAllTasks(){
     // このinputValueをJsonデータに置き換える
     for(var i = 1; i <= Object.keys(dummy_tasks._default).length ; i++){
-      // forのチェック
-      console.log(i);
+
+      var li = document.createElement("li");
+      var myTasklist = document.getElementsByTagName("li");
+      
       //タスクを一個ずつ書き出してみる
       var str = document.createTextNode(dummy_tasks._default[i].task);
-      var myTasklist = document.getElementsByTagName("li");
       li.appendChild(str);
       document.getElementById("task_list").appendChild(li);
       addCloseBtn(li);

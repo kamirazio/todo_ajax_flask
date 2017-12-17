@@ -26,8 +26,8 @@ function newTask() {
 function addAllFunction(){
   var myTasklist = document.getElementsByTagName("li");
   for (var i = 0; i < myTasklist.length; i++) {
-     addCloseBtn(myTasklist[i]).addEventListener('click', out('outer'), true);
-     addCheckFunc(myTasklist[i]).addEventListener('click', out('outer'), true);
+     // addCloseBtn(myTasklist[i]).addEventListener('click', out('outer'), true);
+     // addCheckFunc(myTasklist[i]).addEventListener('click', out('outer'), true);
   }
 }
 
@@ -62,6 +62,9 @@ var dummy_tasks = {
   "4": {"task": "orenge"}
   }
 }
+
+console.log(dummy_tasks);
+console.log(dummy_tasks._default);
 
 function showAllTasks(){
 

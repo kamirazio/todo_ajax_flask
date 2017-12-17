@@ -4,6 +4,11 @@
   position: relative;
 }
 
+body{
+  max-width: 500px;
+  margin: 10px auto;
+}
+
 .header, input, .addBtn {
   width: 100%;
   padding: 10px;

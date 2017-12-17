@@ -6,7 +6,6 @@ function newTask() {
   var inputValue = document.getElementById("task_input").value;
   console.log(inputValue);
 
-
   //ここで新しいタスクを作っている
   var str = document.createTextNode(inputValue);
   li.appendChild(str);
@@ -21,15 +20,6 @@ function newTask() {
     addCheckFunc(li);
   }
   document.getElementById("task_input").value = "";
-}
-
-// Create a "close" button and append it to each list item
-function addAllFunction(){
-  var myTasklist = document.getElementsByTagName("li");
-  for (var i = 0; i < myTasklist.length; i++) {
-     // addCloseBtn(myTasklist[i]).addEventListener('click', out('outer'), true);
-     // addCheckFunc(myTasklist[i]).addEventListener('click', out('outer'), true);
-  }
 }
 
 function addCheckFunc(elm){
@@ -50,7 +40,6 @@ function addCloseBtn(elm){
   }
 }
 
-addAllFunction();
 // ひとまず、全部のタスクをJSONから生成してみる
 // TinyDBで生成された、DBの内容を、テスト用に準備
 var dummy_tasks = {

@@ -52,9 +52,15 @@ function addCloseBtn(elm){
 addAllFunction();
 
 // ひとまず、全部のタスクをJSONから生成してみる
-
+// TinyDBで生成された、DBの内容を、テスト用に準備
 var dummy_tasks = {
-
+  "_default":
+  {
+  "1": {"task": "apple"},
+  "2": {"task": "peach"},
+  "3": {"task": "banana"},
+  "4": {"task": "orenge"}
+  }
 }
 
 function showAllTasks(){

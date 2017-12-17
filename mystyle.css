@@ -1,0 +1,75 @@
+
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.header, input, .addBtn {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.task_list li, .addBtn {
+  cursor: pointer;
+}
+
+/* -------- Style the header -------*/
+.header {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Addボタン */
+.addBtn {
+  background: #d9d9d9;
+  color: #555;
+}
+
+/* マウスオン */
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+/* -------- Style the list items  -------*/
+
+ul li {
+  padding: 10px;
+  list-style-type: none;
+  background: #eee;
+}
+
+/* しましま Task */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* マウスオン */
+ul li:hover {
+  background: #ddd;
+}
+
+/* 閉じるボタン */
+.close {
+  float: right;
+}
+
+/* マウスオン */
+.close:hover {
+  color: white;
+}
+
+/* チェック */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* チェックボタン */
+ul li.checked::before {
+  content: '✓';
+  color: #f44336;
+  position: absolute;
+  margin-left: -40px;
+}

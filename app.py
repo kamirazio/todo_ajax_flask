@@ -25,7 +25,7 @@ def index():
 def add():
     # /add にルーティングされた時に、GETで受け取ったリクエストをデータベースに保存していく
     # 保存が終わったら、indexを実行しJSONに出力
-    return index()
+    pass
 
 @app.route("/delete")
 def delete():

@@ -43,46 +43,52 @@ function addCloseBtn(elm){
 
 // ひとまず、全部のタスクをJSONから生成してみる
 // TinyDBで生成された、DBの内容を、テスト用に準備
-var dummy_tasks = {
-  "_default":
-  {
-  "1": {"task": "apple"},
-  "2": {"task": "peach"},
-  "3": {"task": "banana"},
-  "4": {"task": "orenge"}
-  }
-}
+// var dummy_tasks = {
+//   "_default":
+//   {
+//   "1": {"task": "apple"},
+//   "2": {"task": "peach"},
+//   "3": {"task": "banana"},
+//   "4": {"task": "orenge"}
+//   }
+// }
 
 // JSON を 連携
 function showAllTasks(){
     // JSONを通信で受け取る -> Flask側でTaskのリストをJSONを書き出す
     $.ajax({
-      url: 'http://0.0.0.0:5000/',
+      url: 'http://kamirazio.com:5000/',
       type: 'GET',
       dataType: 'json',
       success: function(data){
       // 通信成功時の処理を記述
       console.log(data);
+
+      // このinputValueをJsonデータに置き換える
+      for(var i = 1; i <= Object.keys(data).length ; i++){
+
+        var li = document.createElement("li");
+        var myTasklist = document.getElementsByTagName("li");
+
+        //タスクを一個ずつ書き出してみる
+        var str = document.createTextNode(dummy_tasks._default[i].task);
+        li.appendChild(str);
+        document.getElementById("task_list").appendChild(li);
+        addCloseBtn(li);
+        addCheckFunc(li);
+      }
+
       },
-      error: function(){
-      // 通信失敗時の処理を記述
-      console.log('失敗');
+      error: function(XMLHttpRequest, textStatus, errorThrown
+        // 通信失敗時の処理を記述
+        console.log('失敗');
+
+        // 失敗の理由を引数で受け取る
+        // console.log(XMLHttpRequest);
+        // console.log(textStatus);
+        // console.log(errorThrown);
       }
     })
-    // このinputValueをJsonデータに置き換える
-    for(var i = 1; i <= Object.keys(dummy_tasks._default).length ; i++){
-
-      var li = document.createElement("li");
-      var myTasklist = document.getElementsByTagName("li");
-
-      //タスクを一個ずつ書き出してみる
-      var str = document.createTextNode(dummy_tasks._default[i].task);
-      li.appendChild(str);
-      document.getElementById("task_list").appendChild(li);
-      addCloseBtn(li);
-      addCheckFunc(li);
-    }
-
 }
 
 showAllTasks();

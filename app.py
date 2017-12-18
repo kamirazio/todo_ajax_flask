@@ -1,10 +1,16 @@
 # Flaskモジュールのインポート
 # jsonify -> JSON形式で書き出す
 from flask import Flask, render_template, request, jsonify
+
 # データベースモジュールのインポート
 from tinydb import TinyDB, Query
 
 app = Flask(__name__)
+
+# Javascriptからのajax通信を許す (クロスドメインを許可する)
+from flask_cors import CORS, cross_origin
+CORS(app)
+
 # データベースの作成
 db = TinyDB('task_db.json')
 
@@ -18,6 +24,12 @@ def index():
 @app.route("/add")
 def add():
     # /add にルーティングされた時に、GETで受け取ったリクエストをデータベースに保存していく
+    # 保存が終わったら、indexを実行しJSONに出力
+    return index()
+
+@app.route("/delete")
+def delete():
+    # /add にルーティングされた時に、GETで受け取ったリクエストをデータベースから削除
     # 保存が終わったら、indexを実行しJSONに出力
     return index()
 
